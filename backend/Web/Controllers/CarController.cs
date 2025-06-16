@@ -57,7 +57,7 @@ namespace Web.Controllers
             if (!ModelState.IsValid)
                 return BadRequest("Invalid car data.");
 
-            car.ID = ID; // 🛠 Assign ID from route to model
+            car.ID = ID;
 
             string img = string.Empty;
             if (car.image != null && car.image.Length > 0)

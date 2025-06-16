@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250616041530_initial")]
-    partial class initial
+    [Migration("20250616091414_try")]
+    partial class @try
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -278,7 +278,10 @@ namespace Infrastructure.Migrations
                     b.Property<DateTime>("BookingDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("EndingDate")
+                    b.Property<DateTime>("Checkindate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("Checkoutdate")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid>("HotelID")
@@ -287,8 +290,16 @@ namespace Infrastructure.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("StartingFromDate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("bookingStatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("noofPeople")
+                        .HasColumnType("int");
+
+                    b.Property<string>("roomType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("userID")
                         .HasColumnType("uniqueidentifier");

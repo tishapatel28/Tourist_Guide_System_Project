@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class @try : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -212,8 +212,11 @@ namespace Infrastructure.Migrations
                     userID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     HotelID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     BookingDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    StartingFromDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EndingDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Checkindate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Checkoutdate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    roomType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    noofPeople = table.Column<int>(type: "int", nullable: false),
+                    bookingStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
